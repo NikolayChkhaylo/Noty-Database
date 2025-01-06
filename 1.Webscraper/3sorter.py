@@ -9,11 +9,11 @@ index_df = pd.read_excel(index_file)
 songs_data_df = pd.read_excel(songs_data_file)
 
 # Adjust column names for the files
-index_columns = ['Categories/Occasions', 'Vocal Types', 'Instrumental Type']  # Columns to process in the index file
+index_columns = ['Categories/Occasions', 'Vocal Types', 'Instrumental Type','Misc.','Composer', 'Album', 'Language']  # Columns to process in the index file
 songs_data_column = 'Categories'  # Column in the songs_data file containing categories to replace
 
 # Iterate over each of the columns in the index file
-for column, prefix in zip(index_columns, ['c', 'v', 'i']):  # Categories -> c, Vocal Types -> v, Instrumental Type -> i
+for column, prefix in zip(index_columns, ['c', 'v', 'i','m','w','a','l']):  # Categories -> c, Vocal Types -> v, Instrumental Type -> i
     for idx, word in enumerate(index_df[column], start=2):  # Skip the header row (start=2)
         if pd.notna(word):  # Proceed only if the cell is not empty
             word = word.strip()  # Remove leading/trailing whitespace

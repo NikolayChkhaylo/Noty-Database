@@ -9,7 +9,7 @@ songs_data_df = pd.read_excel(songs_data_file)
 def clean_text(text):
     if pd.notna(text):  # Only process non-null cells
         # Remove code words like 'c2', 'c3', 'v2', 'i3', etc.
-        #########text = re.sub(r'\b[cvi]\d+\b', '', text)
+        text = re.sub(r'\b[cvimwal]\d+\b', '', text)
 
         # Remove specific phrases (Слова и музыка and Words and music by)
         text = re.sub(r'Слова и музыка', '', text)
@@ -28,8 +28,23 @@ def clean_text(text):
         text = re.sub(r'Рус. текст', '', text)
         text = re.sub(r'Choir + trio', '', text)
         text = re.sub(r'\?{3}', '', text)
-        
-        
+        text = re.sub(r'Муз. и слова', '', text)
+        text = re.sub(r'Слова и мелодия', '', text)
+        text = re.sub(r'Сл. і муз.', '', text)
+        text = re.sub(r'Слова і музика:', '', text)
+        text = re.sub(r'Text și muzică', '', text)
+        text = re.sub(r'текст:', '', text)
+        text = re.sub(r'Укр. текст', '', text)
+        text = re.sub(r'ELyrics & Tune by:', '', text)
+        text = re.sub(r'Instr.', '', text)
+        text = re.sub(r'Arranged by', '', text)
+        #text = re.sub(r'Eng:', '', text)
+        #text = re.sub(r'Eng:', '', text)
+        #text = re.sub(r'Eng:', '', text)
+        #text = re.sub(r'Eng:', '', text)
+        #text = re.sub(r'Eng:', '', text)
+        #text = re.sub(r'Eng:', '', text)
+        #text = re.sub(r'Eng:', '', text)
         # Remove any extra spaces after the removal
         text = re.sub(r'\s+', ' ', text).strip()
 
