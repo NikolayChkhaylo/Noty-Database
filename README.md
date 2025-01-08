@@ -22,7 +22,8 @@ However, this takes too much time, lacks simplicity, defeats our initial goal of
 
 Unfortuantley, there is one more last tedious problem that we will encounter. Lets assume we are working with the collection of songs that is 1000 pages long. Assuming each song is 2 pages long, we would have 500 pdfs right? Turns out that about 80% of the cases, the songs overlap onto one another, meaning, that the pdfs are taken from a book and the way the book is written is to conserve as much space as possible which is why we end up with pdfs where we will have an ending of one song and the beggning of another all on the same page. Essentially all of this comes down to sorting and determining where each song starts and were each song ends, as well as figuring out who is the author by reading the pdf. While AI can help with recognizing the titles and names of authors, there still has to be someone who goes through all the data to make sure the AI properly wrote out the name and title. In the end, there will still be words on the pdf that are unrecognizable due to the poor quality of the pdf.
 
-
+# The database at first glance
+![image](https://github.com/user-attachments/assets/bc21a794-e58f-40ac-b9dd-68a80f0311a8)
 
 
 
