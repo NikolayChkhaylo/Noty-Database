@@ -3,8 +3,9 @@ import pandas as pd
 
 # Word bank with replacements (you can expand this list as needed)
 word_bank = {
-    'Хор': {'chor', 'choir', 'chor (de.)', 'chor', 'Choir SATB', 'SATB', 'Квартет', 'Chois SATB', 'Хор (укр.)', 'САТБ', 'Хор САТБ', 'для хора САТБ', 'СААТББ'},
+    'Хор': {'chor', 'choir', 'chor (de.)', 'chor', 'Choir SATB', 'SATB', 'Квартет', 'Chois SATB', 'Хор (укр.)', 'САТБ', 'Хор САТБ', 'для хора САТБ', 'СААТББ','Хор САБ/САТБ'},
     'Хор, Акапела': {'Хор а капелла'},
+    'Хор + трио': {'Choir + trio'},
     'Молодежный хор': {'Хор - молодёжный хор', 'Молодёжный хор','Хор молодежный'},
     'Мужской хор': {'Man Choir', 'Муж. хор'},
     'Муж. 3-о': {'Муж. трио', 'Мужское трио'},
@@ -22,36 +23,32 @@ word_bank = {
     'Скр. 1': {'Скр. 1/соло', 'скрипка'},
     'Стр. 2-т': {'2 скр','Скр. 2-т'},
     'Стр. 3-о': {'Скр. 3-о'},
-    'Стр. 4-т': {'Скр. 4-т'},
-
-
+    'Стр. 4-т': {'Скр. 4-т','Струнный квартет'},
     'Дух. 4-т': {'Дух. 4т - Е'},
     'Дух. 5-т': {'Духовой 5-т'},
-    'Дух. 6+': {'Дух. 6-т'},
-
+    'Дух. 6+': {'Дух. 6-т','Духовой 6т','Духовой 6','Духовой 6-т'},
+    'Трубы 2-т': {'Труба 2-т'},
     'Фортепиано': {'фно', 'ф-но', 'Соло - ф-но', 'Хор + Фно', 'фоно', 'фо-но', 'фоно - укр.','Фортепианный акк.','Ф-но акк.'},
-    'Симфонический оркестр': {'Symphonie-Orchester'},
-
+    'Симфонический оркестр': {'Symphonie-Orchester'},  
+    'Ансамбль': {'Ensemble','Ansamble','Для ансамбля'},
+    'Духовой оркестр': {'Духовой','Духовой малый','Малый духовой оркестр','Средний духовой оркестр','Духовой ансамбль'},
     
-    'Ансамбль': {'Ensemble','Ansamble'},
     'Украинский вариант': {'Український варіант', 'укр.вар.','укр. вариант'},
-    'Духовой оркестр': {'Духовой','Духовой малый'},
     'Українські слова': {'Украинский текст'},
-    'Хор + трио': {'Choir + trio'},
     'Аккордеон, Баян': {'АККОРДЕОН-БАЯН'},
     
     'Несколько разных мелодий:': {'Разные мелодии', 'version'},
-    'Смешанный ансамбль': {'Ансамбль смешанный'},
-    #'': {''},
-    #'': {''},
-    #'': {''},
-    #'': {''},
-    #'': {''},
-    #'': {''},
-    #'': {''},
-    #'': {''},
-    #'': {''},
-    #'': {''},
+    
+    'Смешанный ансамбль': {'Ансамбль смешанный','Смеш. ансамбль'},
+    
+    #'': {'ЮИ'},
+    '': {'Том 3'},
+    'Муж. хор, дух. 4-т': {'Муж. хор + дух. 4-т'},
+    'Бандура': {'бандури'},
+    'Домра': {'Домры'},
+    'Хор и аккомпанемент': {'Хор с аккомпанементом'},
+    'Соло, скр. 2-т': {'Соло + скр. 2-т'},
+    'Хор, скр. 4-т': {'Хор + скр. 4-т'},
     #'': {''},
     #'': {''},
 }
@@ -73,30 +70,31 @@ def replace_dash_with_comma(text):
     return text
 
 def remove_number_from_album_name(text, albums_in_index):
-    """Remove '№' and number, also remove any number after a space, keeping the album name and comma intact for specific albums."""
     if isinstance(text, str):
-        # Only perform this for albums that exist in the 'Album' column of the index file
+        # Only perform this for albums that exist in the 'albums_in_index' list
         for album in albums_in_index:
             # Check case-insensitively if the album is in the text
             if album.lower() in text.lower():
                 # Remove '№' and the number that follows it (e.g., '№229')
                 text = re.sub(r'№\d+', '', text)
 
-                # Remove any number after the dash (e.g., ' - 212')
+                # Remove any number after a dash (e.g., ' - 212')
                 text = re.sub(r' - \d+', '', text)
-                text = re.sub(r'-\d+', '', text)  # Handle the case where no space before the number
+                text = re.sub(r'-\d+', '', text)  # Handle cases with no space before the number
 
-                # Remove any number after a space (e.g., 'ПВ 1431')
-                text = re.sub(r' \d+', '', text)
+                # Remove standalone numbers after a space but keep numbers in compounds (e.g., '4-т')
+                text = re.sub(r' (?=\d+$)', '', text)
 
                 # Remove numbers in parentheses (e.g., '(537)')
                 text = re.sub(r'\(\d+\)', '', text)
 
+                # Remove empty parentheses (e.g., '()')
+                text = re.sub(r'\(\)', '', text)
                 
-
-                # Ensure the comma remains intact and there are no extra spaces at the end
+                # Ensure the comma remains intact and there are no extra spaces
+                text = text.strip()
                 if text.endswith(','):
-                    text = text.strip()
+                    text = text[:-1].strip()
 
     return text
 
