@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/439d8ea8-d4ab-4257-a9e8-f124c8f893b1)# Noty-Database
 # Problem(s):
 As a musican/choir conductor/singer, I want the capability to quickly and easily find sheet music for various songs with specific styles that fit the occasion at hand(i.e. Thanksgiving, Christmas, wedding, funeral, etc.). While many websites such as noty-bratstvo.org have the option to search with filters like so:
 ![image](https://github.com/user-attachments/assets/8edca3c8-4613-4576-93a6-63ed27e68eca)
