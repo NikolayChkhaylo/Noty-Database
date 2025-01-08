@@ -31,7 +31,7 @@ for column, prefix in zip(index_columns, ['c', 'v', 'i','m','w','a','l']):  # Ca
                     # Join the categories back into a comma-separated string
                     songs_data_df.at[row_idx, songs_data_column] = ', '.join(category_list)
 
-            print(f"Replaced '{word}' with '{prefix}{idx}' in songs_data.")
+            ##############print(f"Replaced '{word}' with '{prefix}{idx}' in songs_data.")
 
 # Save the updated 'songs_data' file (overwrite the original file)
 songs_data_df.to_excel(songs_data_file, index=False)  # Overwrites original file
