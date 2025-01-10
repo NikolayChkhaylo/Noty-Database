@@ -17,9 +17,9 @@ However, this takes too much time, lacks simplicity, defeats our initial goal of
 # Goal(s): 
 1.The first goal we aim to accomplish is to extract the data with a webscraper and normalize the data with the help of a script and excel. The data needs to be able to satisfy 5NF(5th normal form). Unfortunately there is one problem. There will be some rare cases where there are two composers with the same first and last initials but have different names.
 
-2.The 2nd goal will be to put this data into a relational database.
+2.The 2nd goal will be to put this data into a relational database(first into SQlite3 and then MySQL).
 
-3.In the last step we will be testing our database making sure that it was proplery implmeneted and use Tableau to visualize our data. This will allow us to get a bigger and better picture of the data that we are dealing with.
+3.In the last step we will be testing our database making sure that it was proplery implmeneted and use Tableau along with powerBI to visualize our data. 
 
 # Advanced Problem:
   Upon creating the database I noticed there are cases where the file provided isn't a single song but rather a collection of songs(sometimes beings 1000+ pages long). Therefore, if someone wants to look for a song in that collection, they would have to download the whole pdf and look though the file to find their song. A solution to this would be to split the pdf into smaller pdfs that each contain a single song and then rename each corresponding pdf to the name of the song that it contains, along with the name of author, key, etc., so that it can be properly integrated into the database. 
@@ -27,7 +27,11 @@ However, this takes too much time, lacks simplicity, defeats our initial goal of
 Unfortuantley, there is one more last tedious problem that we will encounter. Lets assume we are working with the collection of songs that is 1000 pages long. Assuming each song is 2 pages long, we would have 500 pdfs right? Turns out that about 80% of the cases, the songs overlap onto one another, meaning, that the pdfs are taken from a book and the way the book is written is to conserve as much space as possible which is why we end up with pdfs where we will have an ending of one song and the beggning of another all on the same page. Essentially all of this comes down to sorting and determining where each song starts and were each song ends, as well as figuring out who is the author by reading the pdf. While AI can help with recognizing the titles and names of authors, there still has to be someone who goes through all the data to make sure the AI properly wrote out the name and title. In the end, there will still be words on the pdf that are unrecognizable due to the poor quality of the pdf.
 
 # The database at first glance
-![image](https://github.com/user-attachments/assets/bc21a794-e58f-40ac-b9dd-68a80f0311a8)
+![image](https://github.com/user-attachments/assets/d23af0cc-e558-4753-b625-753dd58229ae)
+
+Then based on the model above we followed up with another more detailed ER diagram
+![image](https://github.com/user-attachments/assets/4591ed7a-a960-4d01-8def-9466112ad04f)
+
 
 
 
