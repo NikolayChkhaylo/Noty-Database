@@ -9,7 +9,7 @@ songs_data_df = pd.read_excel(songs_data_file)
 def clean_text(text):
     if pd.notna(text):  # Only process non-null cells
         # Remove code words like 'c2', 'c3', 'v2', 'i3', etc.
-        text = re.sub(r'\b[cvimwal]\d+\b', '', text)
+        #text = re.sub(r'\b[cvimwal]\d+\b', '', text)
 
         # Remove specific phrases (Слова и музыка and Words and music by)
         text = re.sub(r'Слова и музыка', '', text)
@@ -57,8 +57,8 @@ def clean_text(text):
         text = re.sub(r'пер.', '', text)
         text = re.sub(r'Аранж.:', '', text)
         text = re.sub(r'Перев.:', '', text)
-        #text = re.sub(r'Eng:', '', text)
-        #text = re.sub(r'Eng:', '', text)
+        text = re.sub(r'Русский текст', '', text)
+        text = re.sub(r'из рукописей', '', text)
         #text = re.sub(r'Eng:', '', text)
         #text = re.sub(r'Eng:', '', text)
         #text = re.sub(r'Eng:', '', text)
