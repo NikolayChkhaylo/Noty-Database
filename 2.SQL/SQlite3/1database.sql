@@ -13,7 +13,7 @@ CREATE TABLE songs(
 CREATE TABLE composers(
     id INTEGER PRIMARY KEY,
     composers_name TEXT,
-    date_of_birth DATE NOT NULL,
+    date_of_birth DATE,
     biography TEXT,
     style VARCHAR(255)
 );
@@ -27,7 +27,7 @@ CREATE TABLE vocals(
 );
 CREATE TABLE instruments(
     id INTEGER PRIMARY KEY,
-    instruments_name INTEGER NOT NULL
+    instruments_name TEXT NOT NULL
 );
 CREATE TABLE composers_songs(
     id INTEGER NOT NULL PRIMARY KEY,
