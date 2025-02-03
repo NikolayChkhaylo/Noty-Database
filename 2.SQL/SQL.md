@@ -1,0 +1,2 @@
+#Planning the database
+After sorting the data I started mapping the relationships of the songs. I decided that a song can have multiple composers, writers, genres, instruments, and vocals. These would be the many to many relationships.
