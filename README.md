@@ -35,3 +35,14 @@ After the database was made I procceded to make some reports to analyze composer
 
 # Advanced Problem:
   Upon creating the database I noticed there are cases where the file provided isn't a single song but rather a collection of songs(sometimes beings 1000+ pages long). Therefore, if someone wants to look for a song in that collection, they would have to download the whole pdf and look though the file to find their song. A solution to this would be to split the pdf into smaller pdfs that each contain a single song and then rename each corresponding pdf to the name of the song that it contains, along with the name of author, key, etc., so that it can be properly integrated into the database. 
+
+
+# How to actually run this program for yourself:
+First you'll need to install python
+
+Then you will need to install all the dependencies:
+
+pip install requests beautifulsoup4 langdetect pandas openpyxl
+
+Finally, you can just run the build_db.py script.
+
