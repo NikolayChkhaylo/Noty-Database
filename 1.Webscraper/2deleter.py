@@ -59,7 +59,7 @@ def clean_text(text):
         text = re.sub(r'Перев.:', '', text)
         text = re.sub(r'Русский текст', '', text)
         text = re.sub(r'из рукописей', '', text)
-        text = re.sub(r'№', '', text)
+        #text = re.sub(r'№', '', text)
         #text = re.sub(r':', '', text)
         text = re.sub(r'Перевод:', '', text)
         #text = re.sub(r'Eng:', '', text)
