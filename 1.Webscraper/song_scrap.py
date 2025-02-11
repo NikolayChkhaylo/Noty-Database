@@ -28,7 +28,7 @@ def scrape_song_page(url):
         language = 'Unknown'
 
     # Find all category tags
-    category_tags = soup.find_all('div', class_='field-item even')
+    category_tags = soup.find_all('div', class_='field-item')
     categories = []
     for tag in category_tags:
         if not tag.find(['div', 'h2', 'a']):
@@ -49,10 +49,42 @@ def find_node_links(main_url):
             node_links.append(full_url)
     return node_links
 
-# Function to get the download link without downloading (modified to only return node URL)
+# Function to get the download link without downloading
 def get_download_links(node_url, title):
-    # Simply return the node URL as the download link
-    return [node_url]
+    response = requests.get(node_url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    
+    # Normalize title for filenames
+    valid_title = normalize_filename(title)
+
+    # Check for "Скачать все файлы"
+    download_all_link = soup.find('a', string='Скачать все файлы')
+    if download_all_link:
+        download_url = download_all_link['href']
+        full_download_url = f"https://noty-bratstvo.org{download_url}"
+        return [full_download_url]  # Return a list with a single download link
+
+    # Check for zip files and pdf links
+    zip_links = soup.find_all('a', href=True, string=lambda s: s and 'zip' in s)
+    pdf_links = soup.find_all('a', href=True, string=lambda s: s and 'pdf' in s)
+
+    download_urls = []
+
+    for zip_link in zip_links:
+        zip_name = zip_link.text.strip()
+        if zip_name == f"{valid_title}.zip":
+            full_zip_url = zip_link['href']
+            download_urls.append(full_zip_url)
+
+    for pdf_link in pdf_links:
+        full_pdf_url = pdf_link['href']
+        download_urls.append(full_pdf_url)
+    
+    # If no valid download links are found, use the node URL
+    if not download_urls:
+        download_urls.append(node_url)
+
+    return download_urls
 
 def normalize_filename(title):
     # Replace illegal characters with underscores
@@ -71,6 +103,8 @@ def main():
         'https://noty-bratstvo.org/glossary/9',            
         'https://noty-bratstvo.org/glossary/a',
         'https://noty-bratstvo.org/glossary/b',
+        'https://noty-bratstvo.org/glossary/c',
+        'https://noty-bratstvo.org/glossary/d',
         'https://noty-bratstvo.org/glossary/e',
         'https://noty-bratstvo.org/glossary/f',
         'https://noty-bratstvo.org/glossary/g',
@@ -142,7 +176,7 @@ def main():
             #print(f"Categories: {categories}")
             #print(f"Detected Language: {language}")
 
-            # Get download links (now just the node URL)
+            # Get download links based on the specified conditions
             download_links = get_download_links(node_url, title)
             download_links_str = ', '.join(download_links)  # Join links into a single string
             
