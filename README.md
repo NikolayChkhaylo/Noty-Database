@@ -21,7 +21,7 @@ However, this takes too much time, lacks simplicity, and we can't be sure that c
 
 3.In the last step we will be testing our database making sure that it was proplery implmeneted and use Tableau along or powerBI to visualize our data. 
 
-# Sorting the data
+# 1.Sorting the data
 ![image](https://github.com/user-attachments/assets/763e9bca-97a3-410d-92b1-a4a78e8ec040)
 The image above is a fragment of the data we are working with. On the top left is the list of titles of the songs along with the composers names and categories in the column right next to it. Below is how the data looks when we run our first script to convert applicable names and categories into code names like c23, g45, etc..
 
@@ -44,7 +44,7 @@ Here we have discovered one of the problems with this data and that is the vario
 Finally, the longest part of this project is complete and it is time to put the data into a database
 
 
-# The database at first glance
+# 2.The database at first glance
 Our first rough sketch of the database
 ![image](https://github.com/user-attachments/assets/d23af0cc-e558-4753-b625-753dd58229ae)
 
@@ -53,7 +53,7 @@ Then based on the model above we followed up with another more detailed and corr
 
 Once I implmented the database I ran a couple of test to make sure the data lines up with what I have on my excel spreadsheet. After going back and forth and fixing some mistakes, I was able to get all the songs accounted for and procceded to visualize the data.
 
-# Visualizing the data
+# 3.Visualizing the data
 After the database was made I procceded to make some reports to analyze composers that composed the most songs to see what type of songs genre they stuck to composing in and this is what I found out: 
 
 # Advanced Problem:
