@@ -32,18 +32,20 @@ Next we run a script that will clean up words we have no use for, such as "Words
 Now what we have left are words and phrases that mean the same thing but are spelled different. To Fix this we run a script that normalizes the words into the word that is located in the index that we used to convert the words to code names at the beggining. 
 
 ![image](https://github.com/user-attachments/assets/084e132d-45bf-4674-baf9-21ce9e409b45)
-Now you can see similar words appear for example in cells and . We can procced and run the same script that we ran at the very beggining to convert the words to code names since they will now match our index:
+We can procced and run the same script that we ran at the very beggining to convert the words to code names since they will now match our index:
 
 ![image](https://github.com/user-attachments/assets/97ae48e4-0760-4e3e-9c03-709be3285aa3)
-Almost everything is sorted but we have some unique cases left. Before we tackle those, we can safely run a script that gets rid of stray colons, semicolons, and dashes. The reason we are doing this step just now is because there are some dashes that are part of the words and phrases that the index uses. If we try removing the dashes at the beggning, we will end up with words that are not in our index.
+Almost everything is sorted except for some unique cases left. Before we tackle those, we can safely run a script that gets rid of stray colons, semicolons, and dashes. The reason we are doing this step just now is because there are some dashes that are part of the words and phrases that the index uses. If we try removing the dashes at the beggning, we will end up with words that are not in our index.
 
 ![image](https://github.com/user-attachments/assets/c6a790b8-f3d4-40e0-9fff-6b92b9c50aff)
+Here we have discovered one of the problems with this data and that is the various ways the composers name is spelled. We tackle this by matching their first or last name across all the composers we have logged and then, unfortunately, semi-manually decide if the last names are just a coincidence or are they actually the same person.  
 
-
+![image](https://github.com/user-attachments/assets/48f25212-cf23-418c-a1b7-275f06a0452d)
+Finally, the longest part of this project is complete and it is time to put the data into a database
 
 
 # The database at first glance
-After I sorted the data I began working on the database
+Our first rough sketch of the database
 ![image](https://github.com/user-attachments/assets/d23af0cc-e558-4753-b625-753dd58229ae)
 
 Then based on the model above we followed up with another more detailed and correct ER diagram
