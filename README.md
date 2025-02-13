@@ -21,6 +21,27 @@ However, this takes too much time, lacks simplicity, and we can't be sure that c
 
 3.In the last step we will be testing our database making sure that it was proplery implmeneted and use Tableau along or powerBI to visualize our data. 
 
+# Sorting the data
+![image](https://github.com/user-attachments/assets/763e9bca-97a3-410d-92b1-a4a78e8ec040)
+The image above is a fragment of the data we are working with. On the top left is the list of titles of the songs along with the composers names and categories in the column right next to it. Below is how the data looks when we run our first script to convert applicable names and categories into code names like c23, g45, etc..
+
+![image](https://github.com/user-attachments/assets/544dde50-5ab8-43d9-9458-3da8e5be1c84)
+Next we run a script that will clean up words we have no use for, such as "Words and music by" as we only care about the name of the composer for our sake. Below is what we achieve:
+
+![image](https://github.com/user-attachments/assets/2bdf3eae-8c8e-45eb-943c-63b3773f4e16)
+Now what we have left are words and phrases that mean the same thing but are spelled different. To Fix this we run a script that normalizes the words into the word that is located in the index that we used to convert the words to code names at the beggining. 
+
+![image](https://github.com/user-attachments/assets/084e132d-45bf-4674-baf9-21ce9e409b45)
+Now you can see similar words appear for example in cells and . We can procced and run the same script that we ran at the very beggining to convert the words to code names since they will now match our index:
+
+![image](https://github.com/user-attachments/assets/97ae48e4-0760-4e3e-9c03-709be3285aa3)
+Almost everything is sorted but we have some unique cases left. Before we tackle those, we can safely run a script that gets rid of stray colons, semicolons, and dashes. The reason we are doing this step just now is because there are some dashes that are part of the words and phrases that the index uses. If we try removing the dashes at the beggning, we will end up with words that are not in our index.
+
+![image](https://github.com/user-attachments/assets/c6a790b8-f3d4-40e0-9fff-6b92b9c50aff)
+
+
+
+
 # The database at first glance
 After I sorted the data I began working on the database
 ![image](https://github.com/user-attachments/assets/d23af0cc-e558-4753-b625-753dd58229ae)
