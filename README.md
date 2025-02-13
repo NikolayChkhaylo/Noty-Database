@@ -29,7 +29,7 @@ The image above is a fragment of the data we are working with. On the top left i
 Next we run a script that will clean up words we have no use for, such as "Words and music by" as we only care about the name of the composer for our sake. Below is what we achieve:
 
 ![image](https://github.com/user-attachments/assets/2bdf3eae-8c8e-45eb-943c-63b3773f4e16)
-Now what we have left are words and phrases that mean the same thing but are spelled different. To fix this we run a script that normalizes the words into the word that is located in the index that we used to convert the words to code names at the beggining. 
+Now what we have left are words and phrases that mean the same thing but are spelled different. To fix this we run a script that normalizes the words into the word that is located in the index which is used to convert the words to code names, just like in the beggining. 
 
 ![image](https://github.com/user-attachments/assets/084e132d-45bf-4674-baf9-21ce9e409b45)
 We can procced and run the same script that we ran at the very beggining to convert the words to code names since they will now match our index:
