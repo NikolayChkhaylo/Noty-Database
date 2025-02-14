@@ -53,6 +53,18 @@ Then based on the model above we followed up with another more detailed and corr
 
 Once I implmented the database I ran a couple of test to make sure the data lines up with what I have on my excel spreadsheet. After going back and forth and fixing some mistakes, I was able to get all the songs accounted for and procceded to visualize the data.
 
+![image](https://github.com/user-attachments/assets/78727a2f-6560-4f2c-8e4d-c6d49391bfa4)
+As we can see, we have all nine tables with the exact names as on the diagrams previously displayed.
+
+Now here are the 15 songs from the songs tables
+![image](https://github.com/user-attachments/assets/2185afd7-ff67-4a2a-bda5-52163507f6ff)
+Notice how the first song is a placeholder. This is done for the purpose of helping with debugging and checking the database with the excel spread sheet to make sure the songs are being inserted in the right order.
+
+Lets quickly look at the excel file with the songs below to double check:
+![image](https://github.com/user-attachments/assets/330c1ecf-b5a9-489f-a754-6da65322cff1)
+
+As we can see, the first song is located in the 2nd row, which is why we have a placeholder in our database.
+
 # 3.Visualizing the data
 After the database was made I procceded to make some reports to analyze composers that composed the most songs to see what type of songs genre they stuck to composing in and this is what I found out: 
 
