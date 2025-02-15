@@ -66,7 +66,11 @@ Lets quickly look at the excel file with the songs below to double check:
 As we can see, the first song is located in the 2nd row, which is why we have a placeholder in our database.
 
 # 3.Visualizing the data
-After the database was made I procceded to make some reports to analyze composers that composed the most songs to see what type of songs genre they stuck to composing in and this is what I found out: 
+After the database was made I procceded to make some reports. The first problem I encountered was that I couldn't export directly from sqlite3 so I loaded the database into DB Browser and exported it as a CSV file. With Power BI, I was able to setup the proper relationships:
+
+![image](https://github.com/user-attachments/assets/2f6e7f40-25e7-4138-a3de-6474a5ab5de5)
+
+The first report I decided to do is analyze what genre of songs popped up the most. 
 
 # Advanced Problem:
   Upon creating the database I noticed there are cases where the file provided isn't a single song but rather a collection of songs(sometimes beings 1000+ pages long). Therefore, if someone wants to look for a song in that collection, they would have to download the whole pdf and look though the file to find their song. A solution to this would be to split the pdf into smaller pdfs that each contain a single song and then rename each corresponding pdf to the name of the song that it contains, along with the name of author, key, etc., so that it can be properly integrated into the database. This problem is further explored in the "4.Advanced problem" folder.
