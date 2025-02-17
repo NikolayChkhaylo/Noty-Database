@@ -85,12 +85,19 @@ The barchart above ranks the authors based on the most contributions. The number
 
 ![image](https://github.com/user-attachments/assets/a4bcfe14-ed2e-488d-bb34-032576cf4450)
 
-In the diagram above, I used some of the previously mentioned top composers and decided to analyze how much of their compositions contain the most dominat genre we found out to be in our first Power BI diagram.
+In the diagram above, I used some of the previously mentioned top composers and decided to analyze how much of their compositions contain the most dominat genre. As expected, the data made sense with the top contributors displaying the most contributions in the "Christan life" genre.
 
+# Actual use disscussion and Advanced Problem:
+Now that we have everything setup, we can start adding more information into the database. The majority of the information that is yet to be added is tedious and has to be done semi-manually, such as determining the key of the song (whether it is in major or minor). At best, AI has a 50% chance of determining the right key because of relative major and minor cases in music. Furthermore, what if the musical introduction is in one key, but when the singers comes in, the music changes to a different key? These cases are trival for a musican but I figured this was far from the case when it comes to AI. 
 
-# Advanced Problem:
-  Upon creating the database I noticed there are cases where the file provided isn't a single song but rather a collection of songs(sometimes beings 1000+ pages long). Therefore, if someone wants to look for a song in that collection, they would have to download the whole pdf and look though the file to find their song. A solution to this would be to split the pdf into smaller pdfs that each contain a single song and then rename each corresponding pdf to the name of the song that it contains, along with the name of author, key, etc., so that it can be properly integrated into the database. This problem is further explored in the "4.Advanced problem" folder.
+Fortunately, there is an AI that can determine what key a song is in with sufficient accuracy by audio to make me consider using it. Unfortunately, this means I have to provide a MIDI recording of some sorts or any audio recording. After I analyzed the database for MIDI recordings and formats like MusicXML(that can be easily converted to MIDI), I realized that they were scarce and the majority of songs only had notes without audio. This means that I will have to personally make piano recordings of the song, which is very time consuming, and feed them to the AI. Alternatively, I can convert the PDFs into a music format(MusicXML) that can automatically be used in music software to directly play it back or make a midi recording. ScanScore is an excellent software that scans PDFs of music and converts them to MusicXML formats. This software is basically a PDF converter but for music. Here's an example:
+![image](https://github.com/user-attachments/assets/bf77c49b-2a8d-4275-bfef-f9768020952a)
 
+![image](https://github.com/user-attachments/assets/ba68e311-4680-4699-b801-204ad3435ce1)
+
+However, with each new solution comes another new problem. The accuracy of ScanScore depends on the clarity of the PDF of the sheet music. Sometimes the PDF can clearly distinguish an export coming from some music software(our best case scenario). Other times, the PDF can be clearly seen to have been taken from a book which introduces awkward orientation of the page, dark spots from shadows, uneven lighting, and in some rare cases we have notes being cut off.
+
+The next problem I encountered upon creating the database is that I noticed there are cases where the file provided isn't a single song but rather a collection of songs(sometimes being 1000+ pages long). Therefore, if someone wants to look for a song in that collection, they would have to download the whole PDF and look through the file to find their song. A solution to this would be to split the PDF into smaller PDFs that each contain a single song and then rename each corresponding PDF to the name of the song that it contains, along with the name of author, key, etc., so that it can be properly integrated into the database. This problem is further explored in the "4.Advanced problem" folder(work in progress).
 
 # How to actually run this program for yourself(work in progress):
 First you'll need to install python
