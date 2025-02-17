@@ -54,10 +54,12 @@ Then based on the model above we followed up with another more detailed and corr
 Once I implmented the database I ran a couple of test to make sure the data lines up with what I have on my excel spreadsheet. After going back and forth and fixing some mistakes, I was able to get all the songs accounted for and procceded to visualize the data.
 
 ![image](https://github.com/user-attachments/assets/78727a2f-6560-4f2c-8e4d-c6d49391bfa4)
+
 As we can see, we have all nine tables with the exact names as on the diagrams previously displayed.
 
 Now here are the 15 songs from the songs tables
 ![image](https://github.com/user-attachments/assets/2185afd7-ff67-4a2a-bda5-52163507f6ff)
+
 Notice how the first song is a placeholder. This is done for the purpose of helping with debugging and checking the database with the excel spread sheet to make sure the songs are being inserted in the right order.
 
 Lets quickly look at the excel file with the songs below to double check:
@@ -71,6 +73,20 @@ After the database was made I procceded to make some reports. The first problem 
 ![image](https://github.com/user-attachments/assets/2f6e7f40-25e7-4138-a3de-6474a5ab5de5)
 
 The first report I decided to do is analyze what genre of songs popped up the most. 
+
+![image](https://github.com/user-attachments/assets/f694364d-e0fc-4a47-9c78-5208d049d584)
+
+My prediction was that holidays would definatly be in the top 5. The most open ended, and hence dominant, genre is named "Christan life"(Христианская жизнь). This genre exceeds the rest by a significant margin, contributing slightly more than 20% to the whole followed by Chrismas which contributes only 8.9%. Among the top 10, we have genres like Chrismas, Easter, and other holidays which was to be expected, with Chrismas taking the first place amongst those holidays.
+
+![image](https://github.com/user-attachments/assets/e64f151d-3b26-41f9-80f9-19a7f7e097ed)
+
+The barchart above ranks the authors based on the most contributions. The number each author holds doesn't nessarily mean that they composed many songs but rather how much their name popped up in the data for each particular song. So If a composer was mentioned for writing the words but not the melody, there would be no distinction in the data between the two. Everything counts as 1 contribution from writing the melody, arranging for instruments or voices, or even translating.
+
+
+![image](https://github.com/user-attachments/assets/a4bcfe14-ed2e-488d-bb34-032576cf4450)
+
+In the diagram above, I used some of the previously mentioned top composers and decided to analyze how much of their compositions contain the most dominat genre we found out to be in our first Power BI diagram.
+
 
 # Advanced Problem:
   Upon creating the database I noticed there are cases where the file provided isn't a single song but rather a collection of songs(sometimes beings 1000+ pages long). Therefore, if someone wants to look for a song in that collection, they would have to download the whole pdf and look though the file to find their song. A solution to this would be to split the pdf into smaller pdfs that each contain a single song and then rename each corresponding pdf to the name of the song that it contains, along with the name of author, key, etc., so that it can be properly integrated into the database. This problem is further explored in the "4.Advanced problem" folder.
