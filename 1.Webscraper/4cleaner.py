@@ -5,11 +5,11 @@ import re
 file_path = 'songs_data.xlsx'  # Update with your actual file path
 df = pd.read_excel(file_path)  # Use pd.read_excel() for Excel files
 
-# Function to clean up stray semicolons, remove colons, replace slashes with commas, and remove leading number phrases
+# Function to clean up stray characters like semicolons, remove colons, etc..
 def clean_categories(value):
-    # Check if the value is empty or NaN (and return it unchanged)
+    # Check if the value is empty
     if pd.isna(value) or value == '':
-        return ''  # Return an empty string for NaN or empty values
+        return ''  # Return an empty string for empty values
     
     # Replace slashes with commas
     value = value.replace('/', ',')
@@ -38,6 +38,6 @@ def clean_categories(value):
 df['Categories'] = df['Categories'].apply(lambda x: clean_categories(x) if pd.notna(x) else '')
 
 # Save the updated Excel file (overwrite the original file)
-df.to_excel(file_path, index=False)  # Overwrite the original file
+df.to_excel(file_path, index=False)
 
 print(f"Cleaned data has been saved to '{file_path}'.")

@@ -2,9 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import os
 from langdetect import detect, DetectorFactory
-import pandas as pd  # Import pandas for Excel functionality
+import pandas as pd 
 
-# Set seed for consistency in language detection
 DetectorFactory.seed = 0
 
 # Function to scrape the title and categories from a node URL
@@ -27,7 +26,7 @@ def scrape_song_page(url):
         print(f"Title too short or not found for URL: {url}")
         language = 'Unknown'
 
-    # Find all category tags
+    # Find all category tags and return them
     category_tags = soup.find_all('div', class_='field-item')
     categories = []
     for tag in category_tags:
@@ -49,7 +48,7 @@ def find_node_links(main_url):
             node_links.append(full_url)
     return node_links
 
-# Function to get the download link without downloading
+# Function to get the download link
 def get_download_links(node_url, title):
     response = requests.get(node_url)
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -57,7 +56,7 @@ def get_download_links(node_url, title):
     # Normalize title for filenames
     valid_title = normalize_filename(title)
 
-    # Check for "Скачать все файлы"
+    # Check for "Скачать все файлы" button option
     download_all_link = soup.find('a', string='Скачать все файлы')
     if download_all_link:
         download_url = download_all_link['href']
@@ -175,6 +174,7 @@ def main():
             #print(f"Title: {title}")
             #print(f"Categories: {categories}")
             #print(f"Detected Language: {language}")
+            #uncomment the code above for debugging purposes
 
             # Get download links based on the specified conditions
             download_links = get_download_links(node_url, title)

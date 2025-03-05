@@ -18,7 +18,7 @@ placeholder_song_id = cursor.lastrowid  # Get the ID of the placeholder song
 # Commit the placeholder song
 conn.commit()
 
-# Process each row in the first 100 rows
+# Process each row
 for index, row in songs_data_df.iterrows():
     song_name = row['Title']
     link = row['Download Links']
@@ -37,14 +37,14 @@ for index, row in songs_data_df.iterrows():
 
         # Now, handle the categories (w, i, v, c, etc.) and link them to the song
         for category in category_list:
-            category = category.strip()  # Clean any extra spaces
+            category = category.strip()  # Clean any extra spaces just in case but might not actually need this
             
             # Split the category string if it contains multiple values (e.g., w639,c15,v11)
             sub_categories = category.split(',')
             
             for sub_category in sub_categories:
                 # Check the category type and process it accordingly
-                if sub_category.startswith('w'):  # Vocal category
+                if sub_category.startswith('w'):  # Composer category
                     try:
                         vocal_id = int(sub_category[1:])
                         cursor.execute("INSERT INTO composers_songs (song_id, composer_id) VALUES (?, ?)", (song_id, vocal_id))
@@ -56,13 +56,13 @@ for index, row in songs_data_df.iterrows():
                         cursor.execute("INSERT INTO songs_instruments (song_id, instrument_id) VALUES (?, ?)", (song_id, instrument_id))
                     except ValueError:
                         print(f"Skipping invalid instrument category: {sub_category}")
-                elif sub_category.startswith('c'):  # Genre category
+                elif sub_category.startswith('c'):  # Occasion and category columns
                     try:
                         genre_id = int(sub_category[1:])
                         cursor.execute("INSERT INTO songs_genre (song_id, genre_id) VALUES (?, ?)", (song_id, genre_id))
                     except ValueError:
                         print(f"Skipping invalid genre category: {sub_category}")
-                elif sub_category.startswith('v'):  # Another vocals category
+                elif sub_category.startswith('v'):  # Vocals category
                     try:
                         vocals_id = int(sub_category[1:])
                         cursor.execute("INSERT INTO songs_vocals (song_id, vocals_id) VALUES (?, ?)", (song_id, vocals_id))

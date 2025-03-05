@@ -52,15 +52,9 @@ word_bank = {
     'Стр. 2-т, Фортепиано': {'2 скр фно'},
     'Хор, Фортепиано': {'хор+ф-но'},
     'Хор, Ансамбль': {'Хор + ансамбль'},
-    #'': {'хор+ф-но'},
-    #'': {'хор+ф-но'},
-    #'': {'хор+ф-но'},
-    #'': {'хор+ф-но'},
-    #'': {'хор+ф-но'},
-    #'Стр. 2-т, Фортепиано': {'2 скр фно'},
 }
 
-# Preprocess word bank to make it case-insensitive
+# Preprocess word bank to account for upper case letters
 processed_word_bank = {k: {v.lower() for v in vs} for k, vs in word_bank.items()}
 
 # Function to normalize a single word

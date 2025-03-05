@@ -1,10 +1,10 @@
 import pandas as pd
 
-# Load the Excel files
+# Load Excel files
 index_file = 'index.xlsx'  # File name for the 'index' file
 songs_data_file = 'songs_data.xlsx'  # File name for the 'songs_data' file
 
-# Read the data from the Excel files
+# Read the data from Excel files
 index_df = pd.read_excel(index_file)
 songs_data_df = pd.read_excel(songs_data_file)
 
@@ -12,7 +12,7 @@ songs_data_df = pd.read_excel(songs_data_file)
 index_columns = ['Categories/Occasions', 'Vocal Types', 'Instrumental Type', 'Misc.', 'Composer', 'Album', 'Language']
 prefixes = ['c', 'v', 'i', 'm', 'w', 'a', 'l']
 
-# Build a lookup dictionary for fast replacement
+# Build a lookup dictionary
 lookup = {}
 for column, prefix in zip(index_columns, prefixes):
     for idx, word in enumerate(index_df[column], start=2):  # Start indexing at 2

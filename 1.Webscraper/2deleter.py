@@ -5,13 +5,13 @@ import re
 songs_data_file = 'songs_data.xlsx'  # File name for the 'songs_data' file
 songs_data_df = pd.read_excel(songs_data_file)
 
-# Function to remove code words (e.g., c2, c3, etc.) and unwanted phrases
+# Function to remove code words (e.g., c2, c3, etc.(ONLY FOR DEBUGGING)) and unwanted phrases
 def clean_text(text):
-    if pd.notna(text):  # Only process non-null cells
-        # Remove code words like 'c2', 'c3', 'v2', 'i3', etc.
+    if pd.notna(text):  # Ignore empty cells
+        # Remove code words like 'c2', 'c3', 'v2', 'i3', etc.(debugging)
         #text = re.sub(r'\b[cvimwal]\d+\b', '', text)
 
-        # Remove specific phrases (Слова и музыка and Words and music by)
+        # Remove specific phrases 
         text = re.sub(r'Слова и музыка', '', text)
         text = re.sub(r'Words and music by', '', text)
         text = re.sub(r'Original', '', text)
@@ -74,27 +74,20 @@ def clean_text(text):
         text = re.sub(r'текста и музыка:', '', text)
         text = re.sub(r'Слова та музіка:', '', text)
         #text = re.sub(r'аранж.', '', text)
-        #text = re.sub(r'аранж.', '', text)
-        #text = re.sub(r'аранж.', '', text)
-        #text = re.sub(r'аранж.', '', text)
-        #text = re.sub(r'аранж.', '', text)
-        #text = re.sub(r'аранж.', '', text)
-        #text = re.sub(r'аранж.', '', text)
-        #text = re.sub(r'аранж.', '', text)
             
         # Remove any extra spaces after the removal
         text = re.sub(r'\s+', ' ', text).strip()
 
     return text
 
-# Apply the cleaning function to the relevant column (adjust the column name if needed)
-songs_data_column = 'Categories'  # The column to clean
+# Apply the cleaning function to the relevant column (Only doing this to the Categories column)
+songs_data_column = 'Categories'
 
 # Iterate through each row and clean the data
 for row_idx, categories in songs_data_df[songs_data_column].items():
     songs_data_df.at[row_idx, songs_data_column] = clean_text(categories)
 
 # Save the updated 'songs_data' file (overwrite the original file)
-songs_data_df.to_excel(songs_data_file, index=False)  # Overwrites original file
+songs_data_df.to_excel(songs_data_file, index=False) 
 
-print("Process completed and the songs_data file has been cleaned and overwritten.")
+print("Process completed, file has been cleaned and overwritten.")
