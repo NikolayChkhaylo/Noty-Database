@@ -85,7 +85,7 @@ The barchart above ranks the authors based on the most contributions. The number
 
 ![image](https://github.com/user-attachments/assets/a4bcfe14-ed2e-488d-bb34-032576cf4450)
 
-In the diagram above, I used some of the previously mentioned top composers and decided to analyze how much of their compositions contain the most dominat genre. As expected, the data made sense with the top contributors displaying the most contributions in the "Christan life" genre.
+In the diagram above, I used some of the previously mentioned top composers and decided to analyze how much of their compositions contain the most dominat genre. As expected, the data made sense with the top contributors displaying the most contributions in the "Christian life" genre.
 
 # Actual use disscussion and Advanced Problem:
 Now that we have everything setup, we can start adding more information into the database. The majority of the information that is yet to be added is tedious and has to be done semi-manually, such as determining the key of the song (whether it is in major or minor). At best, AI has a 50% chance of determining the right key because of relative major and minor cases in music. Furthermore, what if the musical introduction is in one key, but when the singers comes in, the music changes to a different key? These cases are trival for a musican but I figured this was far from the case when it comes to AI. 
