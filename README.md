@@ -1,5 +1,5 @@
 # Problem(s):
-As a musican/choir conductor/singer, I want the capability to quickly and easily find sheet music for various songs with specific styles that fit the occasion at hand(i.e. Thanksgiving, Christmas, wedding, funeral, etc.). The website we'll be using is noty-bratstvo.org. This websites contains plenty, if not all, of collections of Christan music such as choir songs, group songs, and even solely instrumental music. This website has the option to search with filters like so:
+As a musican/choir conductor/singer, I want the capability to quickly and easily find sheet music for various songs with specific styles that fit the occasion at hand(i.e. Thanksgiving, Christmas, wedding, funeral, etc.). The website we'll be using is noty-bratstvo.org. This websites contains plenty, if not all, of collections of Christian music such as choir songs, group songs, and even solely instrumental music. This website has the option to search with filters like so:
 ![image](https://github.com/user-attachments/assets/8edca3c8-4613-4576-93a6-63ed27e68eca)
 
 there are still some filters that are not avaliable that I personally would like to have added. 
